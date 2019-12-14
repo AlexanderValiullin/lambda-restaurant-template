@@ -1,0 +1,35 @@
+.main
+  .menu
+    padding: 80px 0 60px
+    +inner-shadow(50, $gradient-color, 0.14)
+    +background-gradient('../../images/bg05.png', 134, #205a5b, 0.09)
+  .menu-card
+    padding: 14px 50px
+    @media (max-width: $md-screen)
+      padding: 14px 0
+    h2
+      text-align: center
+  .menu-item
+    padding: 4px 10px
+    margin: 20px 0
+    h3
+      word-spacing: 0.2em
+    p
+      padding: 0
+      margin: 4px
+    .price
+      float: right
+    .price::before
+      content: '$'
+  .special
+    position: relative
+    border: $border-size solid rgba($border-color, 0.5)
+  .special::before
+    content: 'Special'
+    position: absolute
+    top: -22px
+    right: -$border-size
+    background: url('../../images/bg06.png') center round
+    color: #f8fafa
+    font-size: 0.875rem
+    padding: 0 12px

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    include includes/styles.pug
+    title Restaurant Lambda – The right ingredients for the right food
+  body
+    // Header
+    header.header.animate-root
+      .container
+        nav(role="navigation")#main-navbar.navbar
+          a(href="/").navbar-logo.navbar-logo-big
+            img(src="../images/logo-big-white.png", data-alt-src="../images/logo-big-gold.png", alt="Restaurant Lambda")
+          a(href="/").navbar-logo.navbar-logo-small
+            img(src="../images/logo-small-gold.png", alt="Restaurant Lambda")
+          button.navbar-toggler(data-target="#navbar-main")
+            span.navbar-toggler-icon Menu Toggler
+          #navbar-main.navbar-collapse
+            ul.navbar-nav
+              li
+                a(href="#promo") Home
+              li
+                a(href="#about") About
+              li
+                a(href="#ingredients") Ingredients
+              li
+                a(href="#menu") Menu
+              li
+                a(href="#reviews") Reviews
+              li
+                a(href="#reservations") Reservations
+            ul.navbar-icons.icons
+              li
+                a(href="#")
+                  i.fab.fa-twitter
+              li
+                a(href="#")
+                  i.fab.fa-youtube
+              li
+                a(href="#")
+                  i.fab.fa-facebook-f
+
+    main.main.animate-root
+      // Promo
+      section#promo.promo.parallax
+        .container
+          .row.justify-content-md-center
+            .col-md-12
+              .animate-it(data-animate-name="fadeInUp", data-animate-duration='0.7s', data-animate-delay='500ms', data-animate-repeat="true")
+                h1 The right ingredients<br> for the right food
+              .divider
+          .row.justify-content-md-center
+            .col-md-12
+              .animate-it(data-animate-name="fadeInDown", data-animate-delay=1200, data-animate-repeat="true")
+                a(href="#").btn.btn-promo.animated Book a table
+                a(href="#").btn.btn-promo.animated See the menu
+
+      // About Us
+      section#about.about
+         .container
+          .row
+            .col-lg-5
+              .animate-it(data-animate-name="fadeInLeft", data-animate-duration='1.2s', data-animate-delay=300)
+                h2 Just the right food
+                p If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees make us hard to resist!<br> Stop in today and check us out!
+              .animate-it(data-animate-name="zoomIn", data-animate-duration=1100, data-animate-delay='1s')
+                img.cook(src="../images/cook.png", alt="Cook")
+            .col-lg-7
+              .animate-it(data-animate-name="fadeInRight", data-animate-offset='10%')
+                img.dish(src="../images/dish.png", alt="Dish")
+
+      // Ingredients
+      section#ingredients.ingredients.parallax
+        .container
+          .row.justify-content-end
+            .col-lg-6.col-sm-12
+              .ingredients-card.animate-it(data-animate-name="fadeInLeft")
+                h2.light Fine ingredients
+                p.light If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes, muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!
+                .ingredients-images
+                  img(src="../images/image01.jpg", alt="Wheat")
+                  img(src="../images/image02.jpg", alt="Paprika")
+                  img(src="../images/image03.jpg", alt="Bread")
+
+      // Menu
+      section#menu.menu
+        include sections/menu.pug
+
+      // Reviews
+      section#reviews.reviews.parallax
+        include sections/reviews.pug
+
+      // Reservations
+      section#reservations.reservations
+        .container
+          .row
+            .col-xl-3.col-lg-4.d-none.d-lg-block
+              .reservations-images.animate-it(data-animate-name="fadeInLeft", data-animate-delay=500)
+                img(src="../images/image04.jpg", alt="")
+            .col-xl-3.d-none.d-xl-block
+              .reservations-images.animate-it(data-animate-name="fadeInLeft")
+                img(src="../images/image05.jpg", alt="")
+            .col-xl-6.col-lg-8.col-sm-12
+              .reservations-content
+                h2 Just the right food
+                p If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food.
+                p Delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out! Perfect materials and freshly baked food.
+                form(method="post" action="index.html")
+                  fieldset
+                    label(for="name") Name
+                      input(type="text", name="name" placeholder="you name *")
+                    label(for="email") Email
+                      input(type="email", name="email" placeholder="you email *")
+                    label(for="date") Date
+                      input(type="text", name="date" placeholder="date *")
+                    label(for="party") Party number
+                      input(type="text", name="party" placeholder="party number")
+                  input(type="submit", value="Book now!")
+
+    // Footer
+    footer.footer.animate-root
+      .container
+        .row
+          .col-lg-4
+            .footer-card
+              h3.light About Us
+              p.light Lambda's new and expanded Chelsea location represents a truly authentic <strong>Greek</strong> patisserie, featuring breakfasts of fresh croissants and steaming bowls of café.<br> Lamda the best restaurant in town
+          .col-lg-4
+            .footer-card
+              h3.light Opening Hours
+              dl
+                dt Mon-Thu:
+                dd 7:00am-8:00pm
+                dt Fri-Sun:
+                dd 7:00am-10:00pm
+              ul.icons
+                li
+                  a(href="#")
+                    i.fab.fa-cc-mastercard
+                li
+                  a(href="#")
+                    i.fab.fa-cc-paypal
+                li
+                  a(href="#")
+                    i.fab.fa-cc-visa
+                li
+                  a(href="#")
+                    i.fab.fa-cc-discover
+          .col-lg-4
+            .footer-card
+              h3.light Our Location
+              address 19th Paradise Street Sitia<br> 128 Meserole Avenue
+              ul.icons
+                li
+                  a(href="#")
+                    i.fab.fa-facebook-f
+                li
+                  a(href="#")
+                    i.fab.fa-youtube
+                li
+                  a(href="#")
+                    i.fab.fa-twitter
+                li
+                  a(href="#")
+                    i.fab.fa-trello
+
+    include includes/scripts.pug

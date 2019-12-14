@@ -1,0 +1,21 @@
+//- Отзывы клиентов
+-const reviews = [
+-  { quote: "If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!", writer: "food inc, New York" },
+
+-  { quote: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis accusamus tempora excepturi quibusdam sequi ipsa sint. Voluptatibus, commodi exercitationem maxime recusandae molestias veritatis quisquam, voluptate aspernatur corporis ad, id obcaecati doloremque voluptates nesciunt!", writer: "Lorem Ipsum" },
+
+-  { quote: "Cupiditate itaque voluptas corrupti inventore unde dicta est, animi, asperiores minima optio eligendi odio? Delectus quasi quibusdam molestias officia nemo deleniti accusamus quam dolore vel a veniam quisquam magnam ea commodi dolor excepturi consequuntur, non mollitia assumenda minima ut iusto.", writer: "Dolor Sit Amet" },
+
+-  { quote: "Commodi dolore in architecto vero cumque hic, perspiciatis ad ratione ipsa, id nobis temporibus, impedit recusandae! Perspiciatis provident vel excepturi! Praesentium accusantium ex molestias corporis quos voluptatum laudantium. Sequi praesentium minus, vero ad laudantium cumque eius omnis fugit sunt, sapiente officia.", writer: "Excepteur Sint Occaecat" }
+-]
+
+.container
+  .row.justify-content-md-center
+    .col-lg-8
+      .review-card.animate-it(data-animate-name="zoomIn")
+        h2.light Guest Reviews
+        #reviews-slider.owl-carousel
+          each item in reviews
+            blockquote
+              p.quote= item.quote
+              cite= item.writer

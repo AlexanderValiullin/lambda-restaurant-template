@@ -1,0 +1,14 @@
+// Эффект для ссылок при наведении
+@mixin link-transition($duration: 0.5s, $delay: 0s)
+  transition-property: color, text-shadow, background-color, border-color, box-shadow
+  transition-duration: $duration
+  transition-timing-function: linear
+  transition-delay: $delay
+
+// Внутренняя тень для секции
+@mixin inner-shadow($radius, $color, $opacity)
+  box-shadow: inset 1px 1px #{$radius}px rgba($color, $opacity)
+
+// Мозаичный узор и градиент для секции
+@mixin background-gradient($image, $angle, $color, $opacity)
+  background-image: linear-gradient(#{$angle}deg, rgba($color, $opacity), transparent), url($image)

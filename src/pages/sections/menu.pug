@@ -1,0 +1,47 @@
+//- Массив блюд в меню ресторана
+-const dishes = [
+-  { title: "Appetisers", items: [
+-    { special: false, name: "Tzatsiki", price: 3.99, descr: "Refreshing traditional cucumber and garlic yoghurt dip." },
+-    { special: false, name: "Aubergine Salad", price: 5.50, descr: "Pureed eggplant, garlic, green pepper and tomato dip." },
+-    { special: false, name: "Aubergine Salad", price: 5.25, descr: "Pureed eggplant, garlic, green pepper and tomato dip." }
+-  ]},
+-  { title: "Salads", items: [
+-    { special: false, name: "Greek Salad", price: 5.50, descr: "Pureed eggplant, garlic, green pepper and tomato dip." },
+-    { special: true, name: "Olive Special", price: 5.99, descr: "Refreshing traditional cucumber and garlic yoghurt dip." },
+-    { special: false, name: "Gusto Salad", price: 5.25, descr: "Pureed eggplant, garlic, green pepper and tomato dip." }
+-  ]},
+-  { title: "Starters", items: [
+-    { special: false, name: "Haloumi", price: 3.99, descr: "Refreshing traditional cucumber and garlic yoghurt dip." },
+-    { special: false, name: "Spinach Pie", price: 5.50, descr: "Pureed eggplant, garlic, green pepper and tomato dip." }
+-  ]},
+-  { title: "Main Dishes", items: [
+-    { special: false, name: "Cornish Mackerel", price: 5.99, descr: "Refreshing traditional cucumber and garlic yoghurt dip." },
+-    { special: true, name: "Roast Lamb", price: 5.50, descr: "Pureed eggplant, garlic, green pepper and tomato dip." },
+-    { special: false, name: "Fried Chicken", price: 5.25, descr: "Pureed eggplant, garlic, green pepper and tomato dip." },
+-    { special: false, name: "Pastitsio", price: 5.99, descr: "Refreshing traditional cucumber and garlic yoghurt dip." }
+-  ]}
+-]
+
+//- Количество блоков с блюдами в котонке
+-const num_cols = 2
+-const items_on_col = Math.ceil(dishes.length / num_cols)
+
+//- Стили колонок, ссылка на пункт меню и т.п.
+-const classes = "col-lg-" + String(12 / num_cols)
+-let index, item
+
+.container
+  .row
+    -for (let i = 0; i < num_cols; i++)
+      div(class=classes)
+        -for (let j = 0; j < items_on_col; j++)
+          -index = j + i * num_cols
+          .menu-card.animate-it(data-animate-duration=".5s", data-animate-delay=100)
+            h2= dishes[index].title
+            -for (let k = 0; k < dishes[index].items.length; k++)
+              -item = dishes[index].items[k]
+              .menu-item(class=item.special ? "special": false)
+                h3= item.name
+                  = " "
+                  span.price= item.price.toString()
+                p= item.descr

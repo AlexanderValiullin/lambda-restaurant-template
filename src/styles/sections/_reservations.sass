@@ -1,0 +1,62 @@
+.main
+  .reservations
+    padding: 100px 0 80px
+    +inner-shadow(50, $gradient-color, 0.05)
+    +background-gradient('../../images/bg07.png', 347, #0c3435, 0.07)
+  .reservations-images
+    img
+      max-width: 270px
+      height: 100%
+  .reservations-content
+    padding: 0 50px
+    text-align: center
+    @media (max-width: $sm-screen)
+      padding: 0 10px
+    h2
+      margin-bottom: 30px
+    p
+      margin: 10px 0
+    label
+      width: calc(50% - #{$border-size} * 4)
+      margin: 10px 0
+      text-align: left
+      font-weight: bold
+      font-size: 0.875rem
+      color: $border-color
+      &:nth-child(odd)
+        padding-right: #{$form-gutter / 2}
+      &:nth-child(even)
+        padding-left: #{$form-gutter / 2}
+      @media (max-width: $md-screen)
+        width: 100%
+        &:nth-child(1n)
+          padding: 0
+    input
+      min-width: 200px
+      padding: 6px 18px
+      margin: 10px 0
+    input[type='text'],
+    input[type='email']
+      display: table
+      width: 100%
+      outline: none
+      font-style: italic
+      background-color: rgba($primary-light, 0.4)
+      border: $border-size solid $secondary-light
+      &::placeholder
+        color: lighten($primary-dark, 30%)
+        opacity: 1
+      &:focus
+        border-color: $border-color
+    input[type='submit']
+      border: none
+      background: none
+      box-shadow: none
+      border-radius: 0
+      border: $border-size solid $border-color
+      color: $primary-light
+      background-color: $secondary-mid
+      +link-transition($default-duration)
+      &:hover
+        color: $secondary-mid
+        background-color: rgba($primary-light, 0.4)

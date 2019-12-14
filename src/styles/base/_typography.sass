@@ -1,0 +1,78 @@
+html
+  background-color: $page-background
+  font-size: $font-size-base
+
+body
+  color: $text-color
+  background-color: $body-background
+  box-shadow: 0 0 50px rgba($gradient-color, 0.4)
+  width: 100%
+  max-width: 1600px
+  margin: 0 auto
+
+h1, h2, h3, h4, h5, h6
+  color: $headline-color
+  font-family: $headline-font
+  font-weight: normal
+
+h1
+  font-size: 3rem
+
+h2
+  font-size: 2.25rem
+  background: url('../../images/divider-gold.png') center bottom no-repeat
+  padding-bottom: 30px
+  @media (max-width: $lg-screen)
+    font-size: 2rem
+  @media (max-width: $sm-screen)
+    font-size: 1.625rem
+
+h2.light
+  color: $primary-light
+  background: url('../../images/divider-gray.png') center bottom no-repeat
+
+h3
+  font-size: 1.3rem
+  color: $secondary-mid
+  background: url('../../images/line-long-gold.png') center bottom no-repeat
+  padding-bottom: 4px
+  @media (max-width: $sm-screen)
+    font-size: 1.125rem
+
+h3.light
+  color: darken($primary-light, 10%)
+  background: url('../../images/decoration.png') center bottom no-repeat
+  padding-bottom: 30px
+
+p
+  font-family: $body-font
+  font-weight: normal
+
+p.light
+  color: $primary-light
+
+a
+  color: $link-color
+  font-family: $body-font
+  text-decoration: none
+  +link-transition($default-duration)
+  &:hover
+    color: $link-hover-color
+
+ul.icons
+  margin: 0
+  padding: 0
+  li
+    list-style: none
+    display: inline-block
+    margin-right: 10px
+    &:last-child
+      margin-right: 0
+    @media (max-width: $lg-screen)
+      font-size: 2rem !important
+  a
+    color: $primary-mid
+    text-decoration: none !important
+    &:hover
+      color: $primary-light
+      text-decoration: none !important

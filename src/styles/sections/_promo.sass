@@ -1,0 +1,29 @@
+.main
+  .promo
+    padding: 215px 0 125px
+    background-image: url('../../images/bg01.jpg')
+    text-align: center
+    h1
+      color: rgba($primary-light, 0.92)
+      font-size: 5.625rem
+      text-transform: lowercase
+      line-height: 1.3
+      text-shadow: 1px 1px 2px rgba($gradient-color, 0.64)
+      @media (max-width: $lg-screen)
+        font-size: 3.75rem
+      @media (max-width: $sm-screen)
+        font-size: 2.875rem
+    .divider
+      background: url('../../images/divider-white.png') center no-repeat
+      height: 42px
+      padding: 40px 0
+    .btn-promo
+      text-transform: uppercase
+      font-size: 1.125rem
+      color: $primary-light
+      background-color: rgba($gradient-color, 0.45)
+      padding: 16px 30px
+      min-width: 228px
+      margin: 16px
+      &:hover
+        background-color: rgba($primary-light, 0.25)

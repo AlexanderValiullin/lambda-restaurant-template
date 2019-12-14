@@ -1,0 +1,41 @@
+.main
+  .reviews
+    padding: 100px 0
+    background-image: url('../../images/bg03.jpg')
+    text-align: center
+  .review-card
+    padding: 70px 20px 20px
+    background-color: rgba($gradient-color, 0.67)
+    blockquote
+      margin: 10px 0
+    p.quote
+      padding: 5px 50px
+      position: relative
+      color: $secondary-light
+      font-family: $menu-font
+      font-weight: bold
+      font-size: 1.56rem
+      line-height: 1.84
+      @media (max-width: $md-screen)
+        padding: 5px 10px
+        font-size: 1.25rem
+        line-height: 1.6
+    p.quote::before
+      content: ''
+      position: absolute
+      background: url('../../images/quote.png') center no-repeat
+      width: 32px
+      height: 25px
+      top: 0
+      left: 0
+      @media (max-width: $md-screen)
+        display: none
+    cite
+      display: block
+      margin-top: 20px
+      color: $primary-light
+      font-family: $body-font
+      font-style: normal
+      font-size: 1.125rem
+    cite::before
+      content: '\2014 \00A0'

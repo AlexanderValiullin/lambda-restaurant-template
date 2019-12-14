@@ -1,0 +1,186 @@
+$shadow-position: 1px 1px 6px
+$shadow-opacity: 0.19
+$links-opacity: 0.92
+$icon-line-height: 3
+$button-size: 26
+$mobile-breckpoint: $lg-screen
+
+// Общие стили панели навигации
+.navbar
+  display: flex
+  flex-wrap: nowrap
+  @media (max-width: $mobile-breckpoint)
+    flex-wrap: wrap
+  a
+    font-family: $menu-font
+    font-weight: bold
+    font-size: 1.3125rem
+    color: $primary-light
+    text-decoration: none !important
+  .navbar-logo
+    padding: 10px 0
+    margin-right: auto
+  .navbar-logo-big
+    display: block
+  .navbar-logo-small
+    display: none
+  .navbar-collapse
+    display: flex
+    flex-direction: row
+    align-items: stretch
+    @media (max-width: $mobile-breckpoint)
+      flex-direction: column
+      align-items: center
+      width: 100%
+  ul.navbar-nav
+    display: flex
+    flex-direction: row
+    list-style: none
+    padding: 0
+    margin: 0
+    @media (max-width: $mobile-breckpoint)
+      flex-direction: column
+      align-items: center
+    li
+      display: inline-flex
+      align-items: center
+    a
+      margin: 0 20px
+      @media (max-width: $xl-screen)
+        margin: 0 10px
+  ul.navbar-icons
+    display: flex
+    align-items: center
+
+// Кнопка вызова меню для мобильной версии панели
+.navbar
+  .navbar-toggler
+    display: none
+    width: #{$button-size}px
+    height: #{$button-size}px
+    margin: 0
+    padding: 0
+    align-self: center
+    cursor: pointer
+    border: none
+    background: none
+    box-shadow: none
+    border-radius: 0
+    outline: none
+    &.active
+      .navbar-toggler-icon
+        background-color: transparent
+        &, &::before, &::after
+          top: 0
+        &::before, &::after
+          background-color: rgba($menu-color, $links-opacity)
+        &::before
+          transform: rotate(45deg)
+        &::after
+          transform: rotate(-45deg)
+  .navbar-toggler-icon
+    position: relative
+    font-size: 0
+    &::before, &::after
+      content: ''
+      position: absolute
+    &, &::before, &::after
+      display: block
+      background-color: rgba($primary-light, $links-opacity)
+      width: #{$button-size}px
+      height: #{$icon-line-height}px
+      transition: all $default-duration ease-in-out
+    &::before
+      top: #{round(-$button-size / 2) + $icon-line-height}px
+    &::after
+      top: #{round($button-size / 2) - $icon-line-height}px
+
+// Тема оформления для последующего расширения
+%navbar-theme
+  ul.navbar-nav
+    li
+      position: relative
+    a
+      color: rgba($primary-light, $links-opacity)
+      text-shadow: $shadow-position rgba($gradient-color, $shadow-opacity)
+      &::before
+        transition: transform $default-duration
+        background-color: rgba($primary-light, 0.87)
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        height: #{$icon-line-height}px
+        transform: scaleX(0)
+        box-shadow: $shadow-position rgba($gradient-color, $shadow-opacity)
+      &:hover::before
+        transform: scaleX(1)
+  ul.navbar-icons
+    a
+      color: rgba($menu-color, $links-opacity)
+      text-shadow: $shadow-position rgba($gradient-color, $shadow-opacity)
+      &:hover
+        color: rgba($primary-light, $links-opacity)
+
+// Светлая тема оформления
+.navbar-light
+  @extend %navbar-theme
+  ul.navbar-nav
+    a
+      color: rgba($primary-light, $links-opacity)
+      &::before
+        background-color: rgba($primary-light, 0.87)
+
+// Тёмная тема оформления
+.navbar-dark
+  @extend %navbar-theme
+  ul.navbar-nav
+    a
+      color: rgba($primary-light, $links-opacity)
+      &:hover
+        color: rgba($menu-color, $links-opacity)
+      &::before
+        background-color: rgba($menu-color, $links-opacity)
+
+// Тема оформления для мобильных устройств
+.navbar-small
+  .navbar-logo-big
+    display: none
+  .navbar-logo-small
+    display: block
+  ul.navbar-nav
+    height: 100%
+    padding-bottom: 10px
+    justify-content: space-around
+    &::before,
+    &::after
+      content: ''
+      display: none
+      @media (max-width: $mobile-breckpoint) and (min-height: $xs-screen)
+        display: block
+    &::before
+      background: url('../../images/nav-top-divider.png') center no-repeat
+      height: 26px
+      width: 247px
+    &::after
+      background: url('../../images/nav-bottom-divider.png') center no-repeat
+      height: 26px
+      width: 247px
+    a
+      color: rgba($primary-light, $links-opacity)
+      &:hover
+        color: rgba($menu-color, $links-opacity)
+  ul.navbar-icons
+    display: none
+
+// Анимация меню для мобильных устройств
+#navbar-main.show
+  animation-name: fade-in
+  animation-duration: 0.5s
+
+@keyframes fade-in
+  from
+    opacity: 0
+  to
+    opacity: 1
